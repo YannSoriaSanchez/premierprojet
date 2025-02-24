@@ -15,8 +15,9 @@
             line-height: 1.6;
             background-color: #b0dff1;
             color: #333;
+            padding-top: 60px;
         }
-        nav {
+        header nav {
             position: fixed;
             top: 0;
             width: 100%;
@@ -42,6 +43,11 @@
         nav ul li a:hover {
             color: #007bff;
         }
+        main section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
         #home {
             height: 100vh;
             display: flex;
@@ -51,22 +57,17 @@
             text-align: center;
             background: linear-gradient(to bottom, #007bff, #ffffff);
             color: #fff;
-            padding: 20px;
         }
         #home h1 {
-            font-size: 3em;
+            font-size: 3.5em;
+            font-weight: bold;
             margin-bottom: 10px;
         }
         #home p {
             font-size: 1.5em;
         }
-        section {
-            padding: 60px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
         section h2 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 20px;
             color: #007bff;
             text-align: center;
@@ -83,24 +84,20 @@
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        #contact-form {
+        form {
             display: flex;
             flex-direction: column;
             gap: 15px;
             max-width: 400px;
             margin: 20px auto;
         }
-        #contact-form input, #contact-form textarea {
+        form input, form textarea {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1em;
         }
-        #contact-form textarea {
-            height: 100px;
-            resize: vertical;
-        }
-        #contact-form button {
+        form button {
             background: #007bff;
             color: #fff;
             border: none;
@@ -109,76 +106,68 @@
             cursor: pointer;
             transition: background 0.3s;
         }
-        #contact-form button:hover {
+        form button:hover {
             background: #0056b3;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home">Accueil</a></li>
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#skills">Compétences</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <section id="home">
-        <h1>Yann Soria Sanchez</h1>
-        <p>Développeur Web Junior passionné par les langages HTML, JavaScript et C++
-            à la recherche d'une alternance en partenariat avec OpenClass Room.
-        </p>
-    </section>
+    <main>
+        <section id="home">
+            <h1>Yann Soria Sanchez</h1>
+            <p>Développeur Web Junior passionné par les langages HTML, JavaScript et C++
+                à la recherche d'une alternance en partenariat avec OpenClassrooms.
+            </p>
+        </section>
 
-    <section id="about">
-        <h2>À propos de moi</h2>
-        <p>Salut ! Je m'appelle Yann, j'ai 28ans et je suis un développeur en herbe avec un intérêt pour l'univers du Developpement Web. J’aime apprendre et relever des défis techniques.
-            j'espère que mes légers skills sauront vous convaincre.
-        </p>
-    </section>
+        <section id="about">
+            <h2>À propos de moi</h2>
+            <p>Salut ! Je m'appelle Yann, j'ai 28 ans et je suis un développeur en herbe avec un intérêt pour l'univers du développement web. J’aime apprendre et relever des défis techniques.</p>
+        </section>
 
-    <section id="skills">
-        <h2>Mes compétences (débutant)</h2>
-        <div class="skills-grid">
-            <div>HTML</div>
-            <div>CSS</div>
-            <div>JavaScript</div>
-            <div>C++</div>
-        </div>
-    </section>
+        <section id="skills">
+            <h2>Mes compétences</h2>
+            <div class="skills-grid">
+                <div>HTML</div>
+                <div>CSS</div>
+                <div>JavaScript</div>
+                <div>C++</div>
+            </div>
+        </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>En recherche d'un alternant motivé ? Envoyez-moi un message ! (ce formulaire est une simulation, je n'ai pas de serveur dédié pour l'expédition... En cas de besoin, vous pouvez m'envoyer un mail à l'adresse : yannsoriasanchez@gmail.com)</p>
-        <form id="contact-form">
-            <input type="text" placeholder="Ton nom" required>
-            <input type="email" placeholder="Ton email" required>
-            <textarea placeholder="Ton message" required></textarea>
-            <button type="submit" class="contact-btn">Envoyer</button>
-        </form>
-        <p id="form-message" style="display: none; color: #007bff; margin-top: 10px;"></p>
-    </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <form>
+                <label for="name">Ton nom</label>
+                <input type="text" id="name" placeholder="Ton nom" required>
+                <label for="email">Ton email</label>
+                <input type="email" id="email" placeholder="Ton email" required>
+                <label for="message">Ton message</label>
+                <textarea id="message" placeholder="Ton message" required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+    </main>
 
-    <script>
-        // Défilement fluide
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Simulation d’envoi du formulaire
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('form-message').style.display = 'block';
-            document.getElementById('form-message').textContent = 'Message envoyé ! (Simulation)';
-            this.reset();
-        });
-        
-    </script>
+    <footer>
+        <p>&copy; 2024 Yann Soria Sanchez</p>
+    </footer>
 </body>
 </html>
